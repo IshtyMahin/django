@@ -1,0 +1,32 @@
+
+{% extends 'base.html'%}
+{% load static %}
+{% block content %}
+  <h1 class="heading">About Us</h1>
+
+  <div class="custom-content container ">
+    <p>Welcome to চিলেকোঠা! We are dedicated to promoting sustainable living and healthy eating habits.</p>
+
+    <h4>Meet Our Team</h4>
+    <ul>
+      <li><strong>Ishtiaq Uddin</strong> - Founder and CEO</li>
+      <li><strong>Minhaj chowdhury</strong> - Lead Developer</li>
+      <li><strong>Mohammad Imtiaz</strong> - Nutritionist</li>
+    </ul>
+    <h4>Our Mission</h4>
+    <p>At চিলেকোঠা, our mission is to inspire individuals to make conscious choices for a healthier and environmentally-friendly lifestyle.</p>
+
+    <h4>Our History</h4>
+    <p>Founded in 2018, we have been actively involved in community projects, educational programs, and sustainable farming initiatives.</p>
+
+    <h4>Our Projects</h4>
+    <p>Explore some of the projects we have undertaken to promote organic farming, community gardens, and nutritional awareness.</p>
+
+    <h4 >Gallary</h4>
+    <div class="d-flex flex-wrap  align-items-center gap-3">
+      <img src="{% static 'images/about1.jpg' %}" width="330px" height="330px" alt="">
+      <img src="{% static 'images/about2.jpg' %}" width="330px" height="330px" alt="">
+      <img src="{% static 'images/about3.jpg' %}" width="330px" height="330px" alt="">
+    </div>
+  </div>
+  {% endblock %}

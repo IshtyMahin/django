@@ -1,0 +1,19 @@
+{% extends 'base.html' %} 
+{% load static %} 
+{% block content %}
+<h1 class="heading">Meal Item: {{ categories|length }}</h1>
+<div
+  class="meal-container container d-flex flex-wrap justify-content-center align-items-center gap-3"
+>
+  {% for category in categories %}
+  <div class="card mt-3" style="width: 18rem">
+    <img src="{{ category.strCategoryThumb }}" class="card-img-top" alt="..." />
+    <div class="card-body">
+      <h4><strong>Title: </strong>{{ category.strCategory }}</h4>
+      <p><strong>Product ID: </strong>{{ category.idCategory }}</p>
+      <p>{{ category.strCategoryDescription|truncatewords:10 }}</p>
+    </div>
+  </div>
+  {% endfor %}
+</div>
+{% endblock %}

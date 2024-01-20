@@ -1,0 +1,18 @@
+{% extends 'base.html' %} 
+{% load static %} 
+{% block content %}
+<h1 class="bg-info text-center">Meal Item: {{ meals|length }}</h1>
+<div
+  class="meal-container container d-flex flex-wrap justify-content-center align-items-center gap-3"
+>
+  {% for meal in meals %}
+  <div class="card" style="width: 18rem">
+    <img src="{{ meal.strMealThumb }}" class="card-img-top" alt="..." />
+    <div class="card-body">
+      <h6><strong>Title: </strong>{{ meal.strMeal }}</h6>
+      <p><strong>Product ID: </strong>{{ meal.idMeal }}</p>
+    </div>
+  </div>
+  {% endfor %}
+</div>
+{% endblock %}

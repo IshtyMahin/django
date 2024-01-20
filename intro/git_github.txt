@@ -1,0 +1,16 @@
+Git => 
+  Git is a version control system or tool used for tracking changes in computer files. It's tool developers install locally on their desktop or laptop. It is generally used for source code management in software development.
+
+
+Why should we use git ?
+  -> tracking change to source code 
+  -> multiple developers can work together 
+  -> track history 
+  -> creates backup
+
+Github -> 
+   Github is a code hosting platform for version control and collaboration . It lets you and others work together on projects from anywhere
+
+Git vs Github => 
+Git is a version control system that lets you manage and keep track of your source code history.
+Github is a cloud-based hosting service that lets you manage Git repositories.
