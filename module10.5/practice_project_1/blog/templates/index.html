@@ -1,0 +1,89 @@
+<!-- MyApp/templates/blog_list.html -->
+{% extends 'base.html' %}
+{% load static %}
+
+{% block content %}
+    <h1>Blog List</h1>
+
+    <ul>
+        <li>
+            <p><strong> Upper case title </strong></p>
+            {{ blog.title|upper }}
+        </li>
+        <li>
+            <p><strong> Truncate content to 10 words </strong></p>
+            {{ blog.content|truncatewords:10 }}
+        </li>
+        <li>
+            <p><strong> Length of content </strong></p>
+            Length: {{ blog.content|length }}
+        </li>
+        <li>
+            <p><strong> First 5 characters of content </strong></p>
+            First 5: {{ blog.content|slice:":5" }}
+        </li>
+        <li>
+            <p><strong> Date formatting </strong></p>
+            Published on: {{ blog.pub_date|date:"D d M Y" }}
+        </li>
+        <li>
+            <p><strong> Default if author is None </strong></p>
+            Author: {{ blog.author|default:"Unknown" }}
+        </li>
+        <li>
+            <p><strong> Length of title plus 5 </strong></p>
+            Length + 5: {{ blog.title|length|add:5 }}
+        </li>
+        <li>
+            <p><strong> Linebreaks </strong></p>
+            {{ blog.content|linebreaks }}
+        </li>
+        <li>
+            <p><strong> Join list elements with commas </strong></p>
+            Tags: {{ blog.tags|join:", " }}
+        </li>
+        <li>
+            <p><strong> Remove HTML tags </strong></p>
+            {{ blog.content|striptags }}
+        </li>
+        <li>
+            <p><strong> Default to "No tags" if tags are empty </strong></p>
+            Tags: {{ ""|default:"No tags"}}
+        </li>
+        
+        <li>
+            <p><strong> Title in lower case </strong></p>
+            {{ blog.title|lower }}
+        </li>
+        <li>
+            <p><strong> Date difference from today </strong></p>
+            Days ago: {{ blog.pub_date|timesince }}
+        </li>
+        <li>
+            <p><strong> Slugify title </strong></p>
+            Slug: {{ blog.title|slugify }}
+        </li>
+        <li>
+            <p><strong> Randomize the order of tags </strong></p>
+            Tags: {{ blog.tags|random }}
+        </li>
+        <li>
+            <p><strong> Capitalize each word in the title </strong></p>
+            {{ blog.title|title }}
+        </li>
+
+        <li>
+            <p><strong> Convert content to uppercase </strong></p>
+            {{ blog.content|upper }}
+        </li>
+        <li>
+            <p><strong> Truncate content and add "..." </strong></p>
+            {{ blog.content|truncatechars:50 }}...
+        </li>
+        <li>
+            <p><strong> Add a custom string to the end of the title </strong></p>
+            {{ blog.title|add:" - Read more" }}
+        </li>
+    </ul>
+
+{% endblock %}
