@@ -1,0 +1,1 @@
+{"name":"Local: tmp","url":"c:\\Users\\Ishtiaq\\Desktop\\Software_development\\django\\project_5\\tmp.cpp","tests":[{"id":1705850812342,"input":"5\n1 10\n2 12\n3 8\n4 11\n5 7","output":""}],"interactive":false,"memoryLimit":1024,"timeLimit":3000,"srcPath":"c:\\Users\\Ishtiaq\\Desktop\\Software_development\\django\\project_5\\tmp.cpp","group":"local","local":true}
