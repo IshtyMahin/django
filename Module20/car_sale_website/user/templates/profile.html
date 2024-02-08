@@ -1,0 +1,53 @@
+{% extends "base.html" %} 
+{% block content %} 
+{% load crispy_forms_tags %}
+
+
+
+<div class="mx-2 m-auto">
+  {% include "alert.html" %}
+  <div class="w-50 m-auto">
+    <h1>Profile page</h1>
+  <a class="btn btn-primary btn-sm" href="{% url "edit_profile" %}">Edit Your Profile</a>
+</div>
+<h3 class="text-center">{{data|length}} results found</h3>
+<div class="d-flex flex-wrap justify-content-center mt-4 mx-3">
+   {% for pur in data %}
+        <div class="card mb-3 mx-3" style="width: 20rem">
+          <img
+            class="card-img-top"
+            style="height: 45%"
+            src="{{ pur.car.image.url }}"
+            alt="Card image cap"
+          />
+          <div class="card-body">
+            <h5 class="card-title">
+              <a
+                href="{% url 'detail_car' pur.car.id %}"
+                class="text-decoration-none text-dark"
+                >{{ pur.car.name }}</a
+              >
+            </h5>
+            <p class="card-text">{{ pur.car.description|truncatewords:10}}</p>
+            <p>Price: {{ pur.car.price }}</p>
+            <p>Brands: {{ pur.car.brand_name.name }}</p>
+          </div>
+          <div
+            class="card-footer btn-group d-flex justify-content-center"
+            role="group"
+            aria-label="Basic example"
+          >
+            <form action="{% url 'delete_purchase' pur.id %}" method="POST" class="d-inline">
+            {% csrf_token %}
+            <button type="submit" class="btn btn-danger">Delete</button>
+          </form>
+        </div>
+        </div>
+        {% endfor %}
+     </div>
+</div>
+
+ 
+  
+
+{% endblock content %}
