@@ -4,13 +4,13 @@
 
 
 
-<div class="mx-2 m-auto">
+<div class="mx-5 ">
   {% include "alert.html" %}
-  <div class="w-50 m-auto">
+  <div class="w-50">
     <h1>Profile page</h1>
   <a class="btn btn-primary btn-sm" href="{% url "edit_profile" %}">Edit Your Profile</a>
 </div>
-<h3 class="text-center">{{data|length}} results found</h3>
+<h3 class="text-center">Total Car found: {{data|length}} </h3>
 <div class="d-flex flex-wrap justify-content-center mt-4 mx-3">
    {% for pur in data %}
         <div class="card mb-3 mx-3" style="width: 20rem">
@@ -21,16 +21,12 @@
             alt="Card image cap"
           />
           <div class="card-body">
-            <h5 class="card-title">
-              <a
-                href="{% url 'detail_car' pur.car.id %}"
-                class="text-decoration-none text-dark"
-                >{{ pur.car.name }}</a
-              >
-            </h5>
-            <p class="card-text">{{ pur.car.description|truncatewords:10}}</p>
-            <p>Price: {{ pur.car.price }}</p>
-            <p>Brands: {{ pur.car.brand_name.name }}</p>
+            <h4 class="card-title">
+              {{ pur.car.name }}
+            </h4>
+            <p class="card-text"><b>Description: </b>{{ pur.car.description|truncatewords:10}}</p>
+            <p><b>Price: </b> {{ pur.car.price }}</p>
+            <p><b>Brand: </b>{{ pur.car.brand_name.name }}</p>
           </div>
           <div
             class="card-footer btn-group d-flex justify-content-center"

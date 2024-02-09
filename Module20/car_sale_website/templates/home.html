@@ -21,38 +21,25 @@
     <img class="img-fluid" src="{% static 'header.jpg' %}" alt="img" />
   </div>
 </div>
-<div class="container-fluid min-vh-100">
-  <div class="row min-vh-100">
-    <div class="col-2 bg-white p-3">
-      <h5>All Car Brands</h5>
-      <input class="form-check-input" type="radio" name="brands" id="all" />
-      <label class="form-check-label" for="all">
-        <a href="{% url 'all_car' %}" class="text-decoration-none text-dark"
-          >All</a
-        >
-      </label>
-      {% for brand in brands %}
-      <div class="form-check">
-        <input
-          class="form-check-input"
-          type="radio"
-          name="brands"
-          id="{{brand.id}}"
-        />
-        <label class="form-check-label" for="{{brand.id}}">
-          <a
-            href="{% url 'brand_wise_car' brand.slug %}"
-            class="text-decoration-none text-dark"
-            >{{brand.name}}</a
-          >
-        </label>
-      </div>
-      {% endfor %}
-    </div>
 
-    <div class="col-10 p-3">
+<div class="container-fluid bg-white min-vh-100">
+  <div class="row min-vh-100">
+    <div class="col-12 bg-white p-3">
+    <h5 class="text-center">All Car Brands</h5>
+    <div class="row mt-2 justify-content-center">
+        <div class="col-auto mb-2">
+            <a href="{% url 'all_car' %}" class="btn btn-outline-dark">All</a>
+        </div>
+        {% for brand in brands %}
+        <div class="col-auto mb-2">
+            <a href="{% url 'brand_wise_car' brand.slug %}" class="btn btn-outline-dark">{{brand.name}}</a>
+        </div>
+        {% endfor %}
+    </div>
+    <h3 class="text-center py-2">Total Car found: {{data|length}}</h3>
+  </div>
+  <div class="col-12 p-3">
       <!-- Main Content -->
-      <h4>{{data|length}} results found</h4>
       <div class="d-flex flex-wrap mt-4 justify-content-around">
         {% for car in data %}
         <div class="card mb-3" style="width: 20rem">
@@ -63,42 +50,20 @@
             alt="Card image cap"
           />
           <div class="card-body">
-            <h5 class="card-title">
-              <a
-                href="{% url 'detail_car' car.id %}"
-                class="text-decoration-none text-dark"
-                >{{ car.name }}</a
-              >
-            </h5>
-            <p class="card-text">{{ car.description|truncatewords:10 }}</p>
-            <p>Quantity: {{ car.quantity }}</p>
-            <p>Price: {{ car.price }}</p>
-            <p>Brands: {{ car.brand_name.name }}</p>
+            <h4 class="card-title">
+             {{ car.name }}
+            </h4>
+            <p class="card-text"><b>Description: </b>{{ car.description|truncatewords:10 }}</p>
+            <p><b>Price: </b> {{ car.price }}</p>
+            <p><b>Brands: </b> {{ car.brand_name.name }}</p>
           </div>
-          {% if user.is_authenticated %}
-          <div
-            class="card-footer btn-group d-flex justify-content-center"
-            role="group"
-            aria-label="Basic example"
-          >
-            {% if user.is_staff %}
-            <a href="{% url 'edit_car' car.id %}" class="btn btn-primary"
-              >Edit</a
-            >
-            <a href="{% url 'delete_car' car.id %}" class="btn btn-danger"
-              >Delete</a
-            >
-            {% elif car.quantity == 0 %}
-            <p class="btn btn-warning">Sold</p>
-            {% else %} 
-            <a href="{% url "buy_car" car.id %}" class="btn btn-success">Buy</a>
-            {% endif %}
-          </div>
-          {% endif %}
+          <div class="card-footer d-flex justify-content-center btn-group"> <a href="{% url 'detail_car' car.id %}"
+                class="btn btn-primary">Car Details</a></div>
+          
         </div>
         {% endfor %}
       </div>
-    </div>
   </div>
+</div>
 </div>
 {% endblock content %}
