@@ -1,0 +1,33 @@
+{% extends "base.html" %}
+{% load crispy_forms_tags %}
+
+{% block content %}
+<h1>Sign Up Page</h1>
+
+{% if messages %}
+<div class="alert alert-dismissible fade show" role="alert">
+  {% for message in messages %}
+  <div class="alert alert-{{ message.tags }}" role="alert">
+    {{ message }}
+    <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+  </div>
+  {% endfor %}
+</div>
+{% endif %}
+
+<form class="w-50 m-auto" method="post" novalidate>
+  {% csrf_token %}
+   <!-- {{form|crispy}} -->
+   {% for fm in form %}
+   {{fm.label_tag}}
+   {{fm}}
+   {{fm.errors|striptags}}
+   <br/>
+   {% endfor %}
+ 
+  <button class="btn btn-primary" type="submit">Submit</button>
+  <br/>
+  <small>Already have an account <a href="{% url 'login' %}">Login<a><small>
+</form>
+
+{% endblock content %}

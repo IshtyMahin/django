@@ -10,7 +10,6 @@
         <p class="card-text">{{post.content}}</p>
         <p>Author: {{post.author.name}}</p>
         <p>Category: 
-
             {% for cat in post.category.all %}
              <button class="btn btn-info m-2 btn-sm" disabled >{{cat.name}}</button>
             {% endfor %}

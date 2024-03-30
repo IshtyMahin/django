@@ -1,0 +1,32 @@
+body{
+    background-color: white !important;
+}
+.login-container{
+   
+    justify-content: center;
+    align-items: center;
+    gap: 20px;
+    width: 75%;
+    margin: auto;
+}
+
+.input{
+    padding: 15px 25px;
+    width: 90%;
+    border: none;
+    margin: 10px;
+    box-shadow: 4px 4px 8px gray;
+    border-radius: 5px;
+}
+
+.submit-btn{
+    padding: 15px 25px;
+    width: 90%;
+    margin: 10px;
+
+    border: none;
+    background-color: rgb(42, 135, 135);
+    color: white;
+    font-size: 20px;
+    border-radius: 10px;
+}

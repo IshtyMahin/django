@@ -23,7 +23,6 @@ def edit_post(request,id):
           if post_form.is_valid():
               post_form.save()
               return redirect('homepage')
-
         
     return render(request, 'add_post.html',{'form':post_form})
 

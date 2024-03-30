@@ -1,0 +1,28 @@
+{% extends "base.html" %} 
+{% block content %} 
+{% load crispy_forms_tags %}
+
+<div class="w-50 m-auto">
+  <h1>Change password Here</h1>
+  {% for m in messages  %}
+  <div class="alert alert-{{m.tags}}" role="alert">
+  {{m}}
+</div>
+  {% endfor %}
+  
+  <form method="post" novalidate>
+    {% csrf_token %} 
+   {{form | crispy}}
+    <!-- {{form | crispy}} -->
+    {% comment %} {% for fm in form %}
+    {{fm.label}}
+    {{fm}}
+    {{fm.errors|striptags}}
+    <br/>
+    <br/>
+    {% endfor %} {% endcomment %}
+    <button class="btn btn-primary mb-5" type="submit">Submit</button>
+  </form>
+</div>
+
+{% endblock content %}
